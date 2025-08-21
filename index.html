@@ -12,50 +12,76 @@
     h1, h2, h3 { margin: 0; }
     button, a { cursor: pointer; text-decoration: none; }
 
-    header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #f14a89; display: flex;
-      align-items: center; justify-content: space-between; padding: 0.75rem 2rem; z-index: 1000; }
+    /* Header */
+    header { 
+      position: fixed; top: 0; left: 0; width: 100%; 
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px); 
+      -webkit-backdrop-filter: blur(10px); 
+      color: #f14a89; display: flex;
+      align-items: center; justify-content: space-between; 
+      padding: 0.75rem 2rem; z-index: 1000; 
+    }
     .logo-container { display: flex; align-items: center; gap: 1rem; }
     .logo-container img { height: 40px; width: auto; border-radius: 50%; }
-    nav a { color: #f14a89; margin-left: 1.5rem; font-weight: bold; transition: color 0.3s ease; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a { color: #f14a89; font-weight: bold; transition: color 0.3s ease; }
     nav a:hover { color: white; }
 
-    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column;
-      text-align: center; padding: 6rem 2rem 2rem; background-color: #ffe4ec; }
-    .hero h2 { font-size: 2.5rem; font-weight: 700; color: black; margin-top: 1rem; }
+    /* Mobile Menu */
+    .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+    .menu-toggle span { width: 25px; height: 3px; background: #f14a89; border-radius: 5px; }
+    @media (max-width: 768px) {
+      nav { display: none; flex-direction: column; background: rgba(0,0,0,0.9); position: absolute; top: 60px; right: 0; padding: 1rem 2rem; border-radius: 0 0 0 10px; }
+      nav.active { display: flex; }
+      .menu-toggle { display: flex; }
+    }
+
+    /* Hero */
+    .hero { 
+      min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column;
+      text-align: center; padding: 6rem 2rem 2rem; background-color: #ffe4ec; 
+    }
+    .hero h2 { font-size: 2.2rem; font-weight: 700; color: black; margin-top: 1rem; }
+    .hero p { font-size: 1rem; margin-top: 0.5rem; max-width: 600px; }
     .divider { width: 100px; height: 4px; background: black; margin: 1.5rem auto; border-radius: 2px; }
 
-    .section-title { font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem; text-align: center; }
-    .section-subtitle { font-size: 1.25rem; color: gray; margin-bottom: 3rem; text-align: center; }
+    /* Section Titles */
+    .section-title { font-size: 2rem; font-weight: 900; margin-bottom: 1rem; text-align: center; }
+    .section-subtitle { font-size: 1.125rem; color: gray; margin-bottom: 2rem; text-align: center; }
 
-    .packages { display: flex; justify-content: center; align-items: center; padding: 3rem 1rem; }
-    .package-card { max-width: 500px; background: white; border-radius: 1.5rem; padding: 2rem;
+    /* Packages */
+    .packages { display: flex; justify-content: center; align-items: center; padding: 2rem 1rem; flex-wrap: wrap; }
+    .package-card { max-width: 500px; background: white; border-radius: 1.5rem; padding: 2rem; margin: 1rem;
       box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #eee; text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .package-card:hover { transform: scale(1.05); box-shadow: 0 12px 35px rgba(0,0,0,0.15); }
-    .package-card h3 { font-size: 1.75rem; font-weight: bold; margin-bottom: 1rem; }
-    .price { font-size: 2.25rem; font-weight: 900; color: #f14a89; margin: 1rem 0; }
+    .package-card h3 { font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; }
+    .price { font-size: 2rem; font-weight: 900; color: #f14a89; margin: 1rem 0; }
     .package-card ul { list-style: none; padding: 0; margin: 1.5rem 0; text-align: left; }
-    .package-card ul li { padding: 0.5rem 0; border-bottom: 1px solid #f1f1f1; }
+    .package-card ul li { padding: 0.5rem 0; border-bottom: 1px solid #f1f1f1; font-size: 0.95rem; }
 
-    .btn { padding: 1rem 2rem; border-radius: 9999px; font-weight: bold; font-size: 1.125rem;
+    /* Buttons */
+    .btn { padding: 0.9rem 1.8rem; border-radius: 9999px; font-weight: bold; font-size: 1rem;
       transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center;
       border: none; cursor: pointer; }
     .btn-gradient { background: linear-gradient(to right, #f14a89, #ff9700); color: black; }
     .btn-gradient:hover { transform: scale(1.05); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
 
-    .mentors { background-color: #fff6e0; padding: 5rem 2rem; }
-    .mentor-grid { display: grid; gap: 2rem; }
+    /* Mentors */
+    .mentors { background-color: #fff6e0; padding: 4rem 2rem; }
+    .mentor-grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
     @media (min-width: 768px) { .mentor-grid { grid-template-columns: repeat(3, 1fr); } }
     .mentor-card { background: white; border-radius: 1.5rem; overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: 1px solid #eee; }
     .mentor-card:hover { transform: scale(1.05); box-shadow: 0 6px 25px rgba(0,0,0,0.1); }
     .mentor-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
-    .mentor-info { padding: 1.5rem; text-align: center; }
-    .mentor-info h3 { font-size: 1.25rem; font-weight: bold; }
+    .mentor-info { padding: 1rem; text-align: center; }
+    .mentor-info h3 { font-size: 1.1rem; font-weight: bold; }
     .mentor-info p { color: #f14a89; font-weight: 600; }
 
+    /* Footer */
     footer { background: black; color: gray; text-align: center; padding: 2rem; border-top: 1px solid #222; }
     footer .brand { font-size: 1.5rem; font-weight: 900; color: white; }
     footer .brand span { color: #f14a89; }
@@ -69,7 +95,10 @@
     <img src="https://i.imghippo.com/files/OmGt1284NFw.png" alt="Logo 1">
     <span style="color:#f14a89; font-size:1.5rem; font-weight:bold;">RushXGrowth</span>
   </div>
-  <nav>
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+  <nav id="menu">
     <a href="#about">About</a>
     <a href="#packages">Packages</a>
     <a href="#mentors">Mentors</a>
@@ -77,7 +106,7 @@
   </nav>
 </header>
 
-<!-- Hero Section -->
+<!-- Hero -->
 <section class="hero" id="about">
   <img src="https://i.imghippo.com/files/lUyV3907Ins.png" alt="Logo 2" style="height:60px; width:120px;">
   <div class="divider"></div>
@@ -109,9 +138,9 @@
         <li>Face-to-face Zoom support</li>
       </ul>
       <a href="https://rzp.io/rzp/pKvor1lX" target="_blank">
-  <button class="btn btn-gradient">Buy Now ₹2000</button>
-</a>
-
+        <button class="btn btn-gradient">Buy Now ₹2000</button>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -135,7 +164,7 @@
       </div>
     </div>
     <div class="mentor-card">
-      <img src="https://i.imghippo.com/files/qL7930Dz.jpeg"/>
+      <img src="https://i.imghippo.com/files/qL7930Dz.jpeg" alt="Dinesh Kumar S"/>
       <div class="mentor-info">
         <h3>Dinesh Kumar S</h3>
         <p>Mentor</p>
@@ -154,9 +183,12 @@
   </p>
 </footer>
 
-<!-- JS -->
-
+<!-- JS for Menu -->
+<script>
+  function toggleMenu() {
+    document.getElementById('menu').classList.toggle('active');
+  }
+</script>
 
 </body>
 </html>
-
